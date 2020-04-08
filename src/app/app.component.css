@@ -1,0 +1,12 @@
+/* All the CSS properties for app.component.html are specified here */
+.section {
+    background-color: #313131;
+    min-height: 100vh;
+}
+
+.info-box {
+    color: white;
+    position: absolute;
+    top: 30%;
+    left: 5%;
+}

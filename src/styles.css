@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+/* Resetters */
+.m-none {
+    margin: 0px !important;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover
+{
+     color: white;
+     text-decoration:none;
+     cursor:pointer;
+}
