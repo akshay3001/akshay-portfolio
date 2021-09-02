@@ -1,0 +1,11 @@
+app-header {
+  & .header {
+    color: $color-primary;
+    font-size: $font-size-xl;
+  }
+  
+  & .hello-icon {
+    height: 55px;
+    width: 55px;
+  }
+}

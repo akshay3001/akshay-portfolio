@@ -8,7 +8,6 @@ import { Component } from '@angular/core';
       <p>Backbase Certified Front End Developer</p>
   </section>
   `,
-  styleUrls: ['./personal-details.component.css']
 })
 export class PersonalDetailsComponent {
 }

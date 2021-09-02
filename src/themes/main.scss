@@ -1,0 +1,25 @@
+@import "variables/";
+@import "components/";
+
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+/* Resetters */
+.m-0 {
+  margin: 0px !important;
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $color-primary;
+  text-decoration: none;
+  cursor: pointer;
+}
