@@ -4,12 +4,11 @@ import { Component } from "@angular/core";
   selector: "app-header",
   template: `
     <header class="header">
-      <h1 class="m-none">
+      <h1 class="m-0">
         Hello
         <img class="hello-icon" src="./assets/wave.png" alt="Hello" />
       </h1>
     </header>
   `,
-  styleUrls: ["./header.component.css"],
 })
 export class HeaderComponent {}
