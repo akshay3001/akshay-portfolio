@@ -1,6 +1,15 @@
 # Welcome to Akshay Portfolio built with [Astro](https://astro.build)
 
-Inside of your Astro project, you'll see the following folders and files:
+Astro is an <strong>all-in-one web framework</strong> for building <strong>fast, content-focused</strong> websites.
+
+### Key Features
+- Section titled Key Features
+- Component Islands: A new web architecture for building faster websites.
+- Server-first API design: Move expensive hydration off of your users’ devices.
+- Zero JS, by default: No JavaScript runtime overhead to slow you down.
+- Edge-ready: Deploy anywhere, even a global edge runtime like Deno or Cloudflare.
+- Customizable: Tailwind, MDX, and 100+ other integrations to choose from.
+- UI-agnostic: Supports React, Preact, Svelte, Vue, Solid, Lit and more.
 
 ## Live Demo
 
