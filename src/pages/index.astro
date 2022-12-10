@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import SocialLinks from "../components/SocialLinks.astro";
+import PersonalDetails from "../components/PersonalDetails.astro";
+---
+
+<Layout>
+  <section class="section">
+    <main class="info">
+      <Header />
+      <PersonalDetails />
+      <SocialLinks />
+    </main>
+  </section>
+</Layout>
+
+<style>
+  .section {
+    background-color: var(--grey);
+    min-height: 100vh;
+  }
+
+  .info {
+    color: var(--color-primary);
+    position: absolute;
+    top: 30%;
+    left: 5%;
+  }
+</style>
