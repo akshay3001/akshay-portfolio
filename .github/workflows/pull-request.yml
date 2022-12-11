@@ -46,8 +46,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: dist-artifact
-      - name: Display structure of dist-artifact
-        run: ls -R
       - name: Run Playwright tests
         run: npm run e2e
       - name: Upload test results
