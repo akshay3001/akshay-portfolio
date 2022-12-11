@@ -21,6 +21,11 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-artifact
+          path: dist
   test:
     needs: build
     timeout-minutes: 60
@@ -37,8 +42,12 @@ jobs:
         run: npm ci
       - name: Install Playwright
         run: npx playwright install --with-deps
-      - name: Build
-        run: npm run build
+      - name: Download dist artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist-artifact
+      - name: Display structure of dist-artifact
+        run: ls -R
       - name: Run Playwright tests
         run: npm run e2e
       - name: Upload test results
