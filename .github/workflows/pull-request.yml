@@ -24,7 +24,7 @@ jobs:
       - name: Upload dist artifact
         uses: actions/upload-artifact@v3
         with:
-          name: dist-artifact
+          name: dist
           path: dist
   test:
     needs: build
@@ -45,7 +45,7 @@ jobs:
       - name: Download dist artifact
         uses: actions/download-artifact@v3
         with:
-          name: dist-artifact
+          name: dist
       - name: Run Playwright tests
         run: npm run e2e
       - name: Upload test results
