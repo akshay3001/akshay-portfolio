@@ -30,6 +30,8 @@ jobs:
     needs: build
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.28.1-focal
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -40,8 +42,6 @@ jobs:
           node-version: 16
       - name: Install dependencies
         run: npm ci
-      - name: Install Playwright
-        run: npx playwright install --with-deps
       - name: Download dist artifact
         uses: actions/download-artifact@v3
         with:
