@@ -56,15 +56,12 @@ In `angular.json` locate `serve` target under your project and update following 
 ```json
 
   "serve": {
-    ...
     "configurations": {
       "development": {
         "browserTarget": "web-app:build:development",
         "proxyConfig": "./proxy.conf.json"
       },
-      ...
     },
-    ...
   }
 
 
