@@ -2,8 +2,46 @@
 layout: ../../layouts/Blog.astro
 url: proxy-config-setup
 title: How to Set Up Proxy Configuration in Angular
-description: Step-by-Step Guide
+description: Step-by-Step Guide for configuring proxy settings in Angular
 ---
+
+<style>
+  h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+
+  p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+
+  code {
+    background-color: #787676;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: Consolas, monospace;
+    padding: 2px 6px;
+  }
+
+  pre {
+    background-color: #000000;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: Consolas, monospace;
+    padding: 10px;
+    overflow-x: auto;
+  }
+</style>
 
 # How to Configure Proxy Settings in Your Angular App: A Step-by-Step Guide
 
@@ -13,10 +51,9 @@ When developing a web application, you may need to make requests to external API
 
 The first step is to create a file called proxy.conf.json in the root directory of your Angular project. This file will contain the proxy configuration settings for your application.
 
-Here's an example of what your `proxy.conf.json` file might look like:
+Here's an example of what your <code>proxy.conf.json</code> file might look like:
 
-```json
-
+<pre>
   {
     "/api/*": {
       "target": "http://localhost:3000",
@@ -25,12 +62,9 @@ Here's an example of what your `proxy.conf.json` file might look like:
       "logLevel": "debug"
     }
   }
-
-
-```
+</pre>
 
 This configuration tells the Angular CLI to redirect all requests to URLs that start with /api to the target URL http://localhost:3000. The secure property is set to false to disable SSL verification, and changeOrigin is set to true to change the origin of the request to match the target URL. Finally, the logLevel property is set to debug to enable logging.
-
 
 ## Step 2: Configure the Proxy in Your Angular App
 
@@ -40,12 +74,9 @@ Option 1: Add proxyConfig Parameter While Serving Application
 
 You can add the proxyConfig parameter to your npm run start script to specify the location of your proxy configuration file.
 
-```json
-
+<pre>
   "start": "ng serve --proxy-config ./proxy.conf.json"
-
-
-```
+</pre>
 
 Option 2: Add proxyConfig in angular.json
 
@@ -53,8 +84,7 @@ Alternatively, you can add the proxyConfig setting directly in your angular.json
 
 In `angular.json` locate `serve` target under your project and update following in configuration
 
-```json
-
+<pre>
   "serve": {
     "configurations": {
       "development": {
@@ -63,8 +93,6 @@ In `angular.json` locate `serve` target under your project and update following 
       },
     },
   }
-
-
-```
+</pre>
 
 With these steps, your Angular app should be able to make requests to external resources via the configured proxy.
