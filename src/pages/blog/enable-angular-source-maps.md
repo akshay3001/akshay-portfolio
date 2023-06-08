@@ -29,7 +29,6 @@ description: Step-by-Step Guide to Enable Source Maps in Angular
     background-color: #787676;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-family: Consolas, monospace;
     padding: 2px 6px;
   }
 
@@ -37,7 +36,6 @@ description: Step-by-Step Guide to Enable Source Maps in Angular
     background-color: #000000;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-family: Consolas, monospace;
     padding: 10px;
     overflow-x: auto;
   }
