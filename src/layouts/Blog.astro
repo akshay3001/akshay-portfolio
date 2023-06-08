@@ -1,0 +1,27 @@
+---
+import Main from "./Main.astro";
+---
+
+<Main>
+  <section class="blog-page">
+    <a href="/blog"> Go back</a>
+    <hr />
+    <slot />
+  </section>
+</Main>
+
+<style>
+  /* For mobile screens */
+  @media (max-width: 767px) {
+    .blog-page {
+      padding: var(--spacer);
+    }
+  }
+
+  /* For laptops and larger screens */
+  @media (min-width: 768px) {
+    .blog-page {
+      padding: var(--spacer-xl) var(--container);
+    }
+  }
+</style>

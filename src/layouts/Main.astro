@@ -1,3 +1,8 @@
+---
+import Navbar from "../components/Navbar.astro";
+
+---
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,11 +34,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <!-- Imported Google fonts Ubuntu Font -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Imported Google fonts Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet"> 
     <!-- Google tag (gtag.js) -->
     <script
       type="text/partytown"
@@ -49,6 +53,7 @@
     </script>
   </head>
   <body>
+    <Navbar />
     <slot />
   </body>
 </html>
@@ -64,6 +69,7 @@
     --spacer-md: 0.5rem;
     --spacer-lg: 1.5rem;
     --spacer-xl: 2rem;
+    --container: 8rem;
     --font-size-1: 1.5rem;
     --font-size-2: 1.25rem;
     --font-size-3: 1.125rem;
@@ -77,9 +83,12 @@
   }
   html,
   body {
+    background-color: var(--grey);
+    color: var(--color-primary);
+    font-family: 'Inter', sans-serif;
     margin: 0px;
+    min-height: 100vh;
     padding: 0px;
-    font-family: "Ubuntu", sans-serif;
   }
 
   /* Resetters */
