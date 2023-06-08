@@ -49,16 +49,15 @@ When you're developing an Angular application, you may want to enable source map
 
 ## Step 1: Open the `angular.json` file
 
-The first step is to open the <code>angular.json</code> file in the root directory of your Angular project. This file contains the configuration for your Angular project, including the build options.
+The first step is to open the angular.json file in the root directory of your Angular project. This file contains the configuration for your Angular project, including the build options.
 
 ## Step 2: Locate your project in the `projects` section
 
-In the <code>angular.json</code> file, locate the <code>projects</code> section and find your project. Your project should be named <code>your-project-name</code>.
+In the <code>angular.json</code> file, locate the <code>projects</code> section and find your project. The name of your project will be the same as the name of the directory that contains your project's source code.
 
 ## Step 3: Locate the `build` section under the `architect` section
 
-
-Under the <code>your-project-name</code> section, locate the <code>architect</code> section and then find the <code>build</code> section. This section contains the configuration for building your Angular project.
+Under the <code>architect</code> section, locate the <code>build</code> section. This section contains the build options for your project.
 
 ## Step 4: Add following to the `options` property for each build configuration
 
@@ -68,13 +67,8 @@ For each build configuration that you want to enable source maps for, add the fo
 "configurations": {
   "production": {
     "fileReplacements": [
-      {
-        "replace": "src/environments/environment.ts",
-        "with": "src/environments/environment.prod.ts"
-      }
+      ...
     ],
-    "optimization": true,
-    "outputHashing": "all",
     ...
     "sourceMap": {
       "scripts": true,
