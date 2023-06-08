@@ -2,7 +2,7 @@
 layout: ../../layouts/Blog.astro
 url: enable-angular-source-maps
 title: How to Enable Source Maps in Angular
-description: Step-by-Step Guide
+description: Step-by-Step Guide to Enable Source Maps in Angular
 ---
 
 <style>
