@@ -12,6 +12,7 @@ import { devices } from '@playwright/test';
  */
 const config: PlaywrightTestConfig = {
   testDir: './src/tests',
+  snapshotPathTemplate: '{testDir}/snapshots{/projectName}/{testFilePath}/{arg}{ext}',
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
   expect: {
