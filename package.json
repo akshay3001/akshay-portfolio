@@ -7,6 +7,7 @@
     "start": "astro dev",
     "build": "astro build",
     "e2e": "playwright test",
+    "e2e:update-snapshots": "playwright test --update-snapshots",
     "preview": "astro preview",
     "astro": "astro",
     "prepare": "husky install"
