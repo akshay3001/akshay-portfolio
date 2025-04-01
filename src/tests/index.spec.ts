@@ -20,4 +20,6 @@ test("tests", async ({ page }) => {
     "href",
     "https://in.linkedin.com/in/akshay-mhatre-732a83144"
   );
+
+  // await expect(page).toHaveScreenshot('landing.png', { maxDiffPixels: 100 });
 });
