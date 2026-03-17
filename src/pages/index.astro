@@ -1,41 +1,55 @@
 ---
-// Variant 1: Bold Typographic — oversized dark, high-contrast
+import "@fontsource-variable/inter";
+const siteUrl = "https://akshay-portfolio.vercel.app";
+const title = "Akshay Mhatre — Frontend Developer";
+const description =
+  "Akshay Mhatre is a frontend developer focused on digital banking, building features across retail, business, and wealth management with Angular and the Backbase AI-powered banking platform.";
+const ogImage = `${siteUrl}/portfolio-screenshot.png`;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Akshay — Backbase Certified Front End Developer</title>
+    <title>{title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta
-      name="description"
-      content="Akshay is a Backbase Certified Frontend Developer and has expertise
-    in HTML, HTML5, CSS, CSS3, Flexbox, Bootstrap, Bootstrap 4, Bootstrap 5, Tailwind, Javascript,
-    ES5, ES6, AngularJs, Angular, Angular 2, Angular 4, Angular 5, Angular 6, Angular 7, Angular 8,
-    Angular 9, Angular 10, Angular 11, Angular 12, Angular 13, Angular 14, Angular 15, Backbase Launchpad,
-    Backbase CXS, Backbase 5.6, Backbase 5.7, Backbase 5.9, Backbase 6, Widget Collection 2, EBP,
-    Engagement Banking Platform, Backbase Entitlements, Entitlements, Entitlement,
-    Retail Banking Widget Collection, Retail Banking USA App, Retail Banking Universal App,
-    Business Banking Widget Collection, Business Banking USA App, Business Banking Universal App, Entitlement Widget Collection,
-    Wealth Management Collection, Wealth Management App, Backbase Service SDK, Backbase Moblile SDK, Backbase Web SDK,
-    Backbase Foundation, web-base, Lean Page, Web basic, Experience Manager, CXP, CXS, CX, Platform, CX6, Foundation Services,
-    Infrastructure and Platform Services, Remote config, Remote config SDK, Banking Services,
-    Backbase Digital Banking Services, DBS, Retail Banking, Business Banking, Wealth Management, Wealth Banking,
-    Coorporate Banking, Digital Assist, Employee Web App, EWA, Engage App, Digital Sales, Flow, Flow Platform, Case Manager,
-    Interaction SDK, Retail Onboarding, US Onboarding, Business Onboarding, CCO Onboarding, Credit card origination Onboarding,
-    Digital Lending, Backbase Community, Backbase Developer Hub, Developer hub, API Sandbox,
-    API Portal, Backbase Certification, Backbase Certified, Identity, Identity Server,
-    Backbase Identity Provider, Identity and Access Management, IAM, OAuth, OIDC, Backbase Design system, Digital Engage,
-    Widget Architecture 3, Widget Collection 3, BB CLI, Foundation Angular, Web design system, Mobile design system,
-    Server Side rendering, Svelte, React."
-    />
+    <link rel="canonical" href={siteUrl} />
+
+    <!-- Primary meta -->
+    <meta name="description" content={description} />
+    <meta name="author" content="Akshay Mhatre" />
+    <meta name="robots" content="index, follow" />
     <meta name="generator" content={Astro.generator} />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap"
-      rel="stylesheet"
-    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="Akshay Mhatre" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- JSON-LD: Person -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Akshay Mhatre",
+      "url": siteUrl,
+      "jobTitle": "Frontend Developer",
+      "sameAs": [
+        "https://github.com/akshay3001",
+        "https://in.linkedin.com/in/akshay-mhatre-732a83144"
+      ]
+    })} />
+
     <!-- Google tag (gtag.js) -->
     <script
       type="text/partytown"
@@ -70,12 +84,29 @@
             data-testid="linked-link">LinkedIn</a
           >
         </div>
+        <p class="bio">
+          Frontend developer focused on digital banking. I work with Angular and
+          the Backbase AI-powered banking platform to build and ship features across retail,
+          business, and wealth management - from onboarding to servicing,
+          covering the full customer lifecycle.
+        </p>
       </div>
     </main>
   </body>
 </html>
 
 <style>
+  :root {
+    --bg: #090909;
+    --fg: #f0f0f0;
+    --white: #fff;
+    --muted-1: #222;
+    --muted-2: #2a2a2a;
+    --muted-3: #444;
+    --muted-4: #555;
+    --muted-5: #666;
+    --muted-6: #888;
+  }
   *,
   *::before,
   *::after {
@@ -86,9 +117,9 @@
   html,
   body {
     min-height: 100vh;
-    background: #090909;
-    color: #f0f0f0;
-    font-family: "Inter", sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "Inter Variable", sans-serif;
   }
   main {
     min-height: 100vh;
@@ -105,7 +136,7 @@
     font-weight: 300;
     letter-spacing: 0.4em;
     text-transform: uppercase;
-    color: #555;
+    color: var(--muted-4);
     margin-bottom: 0.75rem;
   }
   .name {
@@ -113,16 +144,16 @@
     font-weight: 900;
     line-height: 0.88;
     letter-spacing: -0.04em;
-    color: #fff;
+    color: var(--white);
   }
   .role {
     font-size: clamp(1rem, 2.2vw, 1.4rem);
     font-weight: 300;
-    color: #666;
+    color: var(--muted-5);
     line-height: 1.7;
     margin-top: 2rem;
     padding-left: 1.25rem;
-    border-left: 1px solid #2a2a2a;
+    border-left: 1px solid var(--muted-2);
   }
   .links {
     display: flex;
@@ -131,7 +162,7 @@
     align-items: center;
   }
   a {
-    color: #888;
+    color: var(--muted-6);
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: 400;
@@ -147,11 +178,11 @@
     left: 0;
     width: 0;
     height: 1px;
-    background: #fff;
+    background: var(--white);
     transition: width 0.3s ease;
   }
   a:hover {
-    color: #fff;
+    color: var(--white);
   }
   a:hover::after {
     width: 100%;
@@ -161,6 +192,14 @@
     display: block;
     width: 40px;
     height: 1px;
-    background: #222;
+    background: var(--muted-1);
+  }
+  .bio {
+    margin-top: 4rem;
+    max-width: 560px;
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--muted-3);
+    line-height: 1.8;
   }
 </style>
