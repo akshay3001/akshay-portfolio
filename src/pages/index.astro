@@ -65,25 +65,34 @@ const ogImage = `${siteUrl}/portfolio-screenshot.png`;
     </script>
   </head>
   <body>
-    <main>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <main id="main-content">
       <div class="container">
         <span class="greeting">Hello there</span>
         <h1 class="name" data-testid="personal-info">Akshay</h1>
-        <p class="role">Backbase Certified<br />Front End Developer</p>
-        <div class="links">
-          <a
-            href="https://github.com/akshay3001"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-testid="github-link">GitHub</a
-          >
-          <a
-            href="https://in.linkedin.com/in/akshay-mhatre-732a83144"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-testid="linked-link">LinkedIn</a
-          >
-        </div>
+        <p class="role" aria-label="Backbase Certified Frontend Developer">Backbase Certified<br />Frontend Developer</p>
+        <nav class="links" aria-label="Social profiles">
+          <ul>
+            <li>
+              <a
+                href="https://github.com/akshay3001"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="github-link"
+                aria-label="GitHub profile (opens in new tab)">GitHub</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://in.linkedin.com/in/akshay-mhatre-732a83144"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="linked-link"
+                aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a
+              >
+            </li>
+          </ul>
+        </nav>
         <p class="bio">
           Frontend developer focused on digital banking. I work with Angular and
           the Backbase AI-powered banking platform to build and ship features across retail,
@@ -102,10 +111,26 @@ const ogImage = `${siteUrl}/portfolio-screenshot.png`;
     --white: #fff;
     --muted-1: #222;
     --muted-2: #2a2a2a;
-    --muted-3: #444;
-    --muted-4: #555;
-    --muted-5: #666;
-    --muted-6: #888;
+    --muted-3: #999;
+    --muted-4: #888;
+    --muted-5: #aaa;
+    --muted-6: var(--muted-4);
+  }
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    padding: 0.5rem 1rem;
+    background: var(--white);
+    color: var(--bg);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    z-index: 100;
+    transition: top 0.2s;
+  }
+  .skip-link:focus-visible {
+    top: 0;
   }
   *,
   *::before,
@@ -161,6 +186,14 @@ const ogImage = `${siteUrl}/portfolio-screenshot.png`;
     margin-top: 4rem;
     align-items: center;
   }
+  .links ul {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
   a {
     color: var(--muted-6);
     text-decoration: none;
@@ -184,8 +217,15 @@ const ogImage = `${siteUrl}/portfolio-screenshot.png`;
   a:hover {
     color: var(--white);
   }
-  a:hover::after {
+  a:hover::after,
+  a:focus-visible::after {
     width: 100%;
+  }
+  a:focus-visible {
+    color: var(--white);
+    outline: 2px solid var(--white);
+    outline-offset: 4px;
+    border-radius: 2px;
   }
   .links::before {
     content: "";
@@ -193,6 +233,7 @@ const ogImage = `${siteUrl}/portfolio-screenshot.png`;
     width: 40px;
     height: 1px;
     background: var(--muted-1);
+    flex-shrink: 0;
   }
   .bio {
     margin-top: 4rem;
