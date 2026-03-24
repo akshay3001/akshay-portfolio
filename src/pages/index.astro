@@ -1,5 +1,5 @@
 ---
-import "@fontsource-variable/inter";
+import { Font } from "astro:assets";
 const siteUrl = "https://akshay-portfolio.vercel.app";
 const title = "Akshay Mhatre - Frontend Developer";
 const description =
@@ -11,6 +11,7 @@ const ogImage = `${siteUrl}/portfolio-screenshot.png`;
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <Font cssVariable="--font-inter" />
     <title>{title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -144,7 +145,7 @@ const ogImage = `${siteUrl}/portfolio-screenshot.png`;
     min-height: 100vh;
     background: var(--bg);
     color: var(--fg);
-    font-family: "Inter Variable", sans-serif;
+    font-family: var(--font-inter), sans-serif;
   }
   main {
     min-height: 100vh;
