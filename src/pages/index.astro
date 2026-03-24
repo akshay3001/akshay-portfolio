@@ -244,4 +244,34 @@ const ogImage = `${siteUrl}/portfolio-screenshot.png`;
     color: var(--muted-3);
     line-height: 1.8;
   }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(var(--slide));
+    }
+  }
+  .greeting,
+  .name,
+  .role,
+  .links,
+  .bio {
+    animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .greeting { --slide: 8px; animation-delay: 0s; }
+  .name { --slide: 8px; animation-delay: 0.05s; }
+  .role { --slide: 20px; animation-delay: 0.1s; }
+  .links { --slide: 20px; animation-delay: 0.15s; }
+  .bio { --slide: 20px; animation-delay: 0.2s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .greeting,
+    .name,
+    .role,
+    .links,
+    .bio {
+      animation: none;
+      opacity: 1;
+    }
+  }
 </style>

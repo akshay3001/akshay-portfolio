@@ -11,6 +11,7 @@ export default defineConfig({
       cssVariable: "--font-inter",
       weights: [300, 400, 600, 900],
       styles: ["normal"],
+      display: "optional",
     },
   ],
   integrations: [
