@@ -1,17 +1,36 @@
 ---
-import { Font } from "astro:assets";
 const siteUrl = "https://akshay-portfolio.vercel.app";
 const title = "Akshay Mhatre - Frontend Developer";
 const description =
   "Akshay Mhatre is a frontend developer focused on digital banking, building features across retail, business, and wealth management with Angular and the Backbase AI-powered banking platform.";
 const ogImage = `${siteUrl}/portfolio-screenshot.png`;
+
+const highlights = [
+  { value: "Angular", label: "Primary frontend stack" },
+  { value: "Backbase", label: "Certified banking platform" },
+  { value: "3 domains", label: "Retail, business, wealth" },
+];
+
+const capabilities = [
+  {
+    title: "Banking journeys",
+    text: "Builds customer-facing flows across onboarding, servicing, account access, and lifecycle moments.",
+  },
+  {
+    title: "Platform delivery",
+    text: "Works inside Backbase ecosystems where feature work needs to respect platform contracts and release pace.",
+  },
+  {
+    title: "Frontend systems",
+    text: "Turns product requirements into accessible Angular interfaces with maintainable component boundaries.",
+  },
+];
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <Font cssVariable="--font-inter" />
     <title>{title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -68,210 +87,533 @@ const ogImage = `${siteUrl}/portfolio-screenshot.png`;
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <main id="main-content">
-      <div class="container">
-        <span class="greeting">Hello there</span>
-        <h1 class="name" data-testid="personal-info">Akshay</h1>
-        <p class="role" aria-label="Backbase Certified Frontend Developer">Backbase Certified<br />Frontend Developer</p>
-        <nav class="links" aria-label="Social profiles">
-          <ul>
-            <li>
-              <a
-                href="https://github.com/akshay3001"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-testid="github-link"
-                aria-label="GitHub profile (opens in new tab)">GitHub</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://in.linkedin.com/in/akshay-mhatre-732a83144"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-testid="linked-link"
-                aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a
-              >
-            </li>
-          </ul>
+      <header class="masthead" data-testid="header">
+        <a class="brand" href="/" aria-label="Akshay Mhatre home">
+          <span>AM</span>
+        </a>
+        <nav class="top-links" aria-label="Social profiles">
+          <a
+            href="https://github.com/akshay3001"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="github-link"
+            aria-label="GitHub profile (opens in new tab)">GitHub</a
+          >
+          <a
+            href="https://in.linkedin.com/in/akshay-mhatre-732a83144"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="linked-link"
+            aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a
+          >
         </nav>
-        <p class="bio">
-          Frontend developer focused on digital banking. I work with Angular and
-          the Backbase AI-powered banking platform to build and ship features across retail,
-          business, and wealth management - from onboarding to servicing,
-          covering the full customer lifecycle.
+      </header>
+
+      <section class="hero" aria-labelledby="intro-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Backbase Certified Frontend Developer</p>
+          <h1 id="intro-title" class="name" data-testid="personal-info">
+            Akshay Mhatre
+          </h1>
+          <p class="role">
+            I build Angular experiences for digital banking teams shipping across
+            retail, business, and wealth management.
+          </p>
+        </div>
+
+        <aside class="signal-panel" aria-label="Current focus">
+          <p class="panel-kicker">Current focus</p>
+          <p>
+            Shipping reliable frontend journeys on the Backbase AI-powered
+            banking platform, from onboarding through long-term servicing.
+          </p>
+        </aside>
+      </section>
+
+      <section class="metrics" aria-label="Experience highlights">
+        {
+          highlights.map((item) => (
+            <article>
+              <strong>{item.value}</strong>
+              <span>{item.label}</span>
+            </article>
+          ))
+        }
+      </section>
+
+      <section class="work" aria-labelledby="work-title">
+        <div>
+          <p class="eyebrow">What I do</p>
+          <h2 id="work-title">Frontend work for regulated product teams.</h2>
+        </div>
+        <p>
+          I focus on the parts of banking software where interface quality,
+          platform constraints, and product delivery all meet. The work is
+          practical: clear flows, resilient components, and screens that can
+          survive real release cycles.
         </p>
-      </div>
+      </section>
+
+      <section class="capabilities" aria-label="Capabilities">
+        {
+          capabilities.map((item, index) => (
+            <article class="capability">
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))
+        }
+      </section>
+
+      <footer class="footer">
+        <p>Available for focused frontend work in banking and platform teams.</p>
+        <a href="mailto:akshay3001@gmail.com">akshay3001@gmail.com</a>
+      </footer>
     </main>
   </body>
 </html>
 
 <style>
   :root {
-    --bg: #090909;
-    --fg: #f0f0f0;
-    --white: #fff;
-    --muted-1: #222;
-    --muted-2: #2a2a2a;
-    --muted-3: #999;
-    --muted-4: #888;
-    --muted-5: #aaa;
-    --muted-6: var(--muted-4);
+    color-scheme: dark;
+    --bg: #10100e;
+    --paper: #f4efe3;
+    --ink: #f7f1e6;
+    --muted: #aaa093;
+    --quiet: #6f685f;
+    --line: rgba(244, 239, 227, 0.14);
+    --panel: rgba(244, 239, 227, 0.07);
+    --accent: #d8a339;
+    --accent-strong: #f0bf53;
+    --shadow: rgba(0, 0, 0, 0.35);
+    --display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --body: "Avenir Next", Avenir, "Segoe UI", sans-serif;
   }
-  .skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    padding: 0.5rem 1rem;
-    background: var(--white);
-    color: var(--bg);
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-decoration: none;
-    z-index: 100;
-    transition: top 0.2s;
-  }
-  .skip-link:focus-visible {
-    top: 0;
-  }
+
   *,
   *::before,
   *::after {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
   }
-  html,
+
+  * {
+    margin: 0;
+  }
+
+  html {
+    min-height: 100%;
+    background: var(--bg);
+  }
+
   body {
     min-height: 100vh;
-    background: var(--bg);
-    color: var(--fg);
-    font-family: var(--font-inter), sans-serif;
+    color: var(--ink);
+    font-family: var(--body);
+    background:
+      linear-gradient(135deg, rgba(216, 163, 57, 0.16), transparent 28rem),
+      radial-gradient(circle at 88% 12%, rgba(244, 239, 227, 0.1), transparent 18rem),
+      linear-gradient(90deg, rgba(244, 239, 227, 0.035) 1px, transparent 1px),
+      var(--bg);
+    background-size: auto, auto, 88px 88px, auto;
   }
-  main {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: clamp(2rem, 8vw, 6rem);
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.3;
+    background-image:
+      linear-gradient(rgba(244, 239, 227, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(244, 239, 227, 0.04) 1px, transparent 1px);
+    background-size: 100% 9rem, 9rem 100%;
+    mask-image: linear-gradient(to bottom, black, transparent 78%);
   }
-  .container {
-    max-width: 1000px;
-  }
-  .greeting {
-    display: block;
-    font-size: 0.85rem;
-    font-weight: 300;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--muted-4);
-    margin-bottom: 0.75rem;
-  }
-  .name {
-    font-size: clamp(5rem, 14vw, 11rem);
-    font-weight: 900;
-    line-height: 0.88;
-    letter-spacing: -0.04em;
-    color: var(--white);
-  }
-  .role {
-    font-size: clamp(1rem, 2.2vw, 1.4rem);
-    font-weight: 300;
-    color: var(--muted-5);
-    line-height: 1.7;
-    margin-top: 2rem;
-    padding-left: 1.25rem;
-    border-left: 1px solid var(--muted-2);
-  }
-  .links {
-    display: flex;
-    gap: 2.5rem;
-    margin-top: 4rem;
-    align-items: center;
-  }
-  .links ul {
-    display: flex;
-    gap: 2.5rem;
-    align-items: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  a {
-    color: var(--muted-6);
+
+  .skip-link {
+    position: absolute;
+    top: -48px;
+    left: 1rem;
+    padding: 0.6rem 0.85rem;
+    background: var(--paper);
+    color: var(--bg);
+    font-size: 0.875rem;
+    font-weight: 700;
     text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: 400;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-    position: relative;
+    z-index: 100;
+    transition: top 0.2s ease;
   }
-  a::after {
+
+  .skip-link:focus-visible {
+    top: 1rem;
+  }
+
+  main {
+    width: min(1180px, calc(100% - clamp(2rem, 7vw, 7rem)));
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: clamp(1.25rem, 3vw, 2rem) 0 clamp(2rem, 5vw, 4rem);
+  }
+
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .brand {
+    display: grid;
+    width: 3rem;
+    height: 3rem;
+    place-items: center;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    color: var(--paper);
+    font-family: var(--display);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-decoration: none;
+    background: rgba(244, 239, 227, 0.06);
+  }
+
+  .top-links {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 3vw, 2rem);
+  }
+
+  a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .top-links a,
+  .footer a {
+    position: relative;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .top-links a::after,
+  .footer a::after {
     content: "";
     position: absolute;
-    bottom: -3px;
+    right: 0;
+    bottom: -0.4rem;
     left: 0;
-    width: 0;
     height: 1px;
-    background: var(--white);
-    transition: width 0.3s ease;
-  }
-  a:hover {
-    color: var(--white);
-  }
-  a:hover::after,
-  a:focus-visible::after {
-    width: 100%;
-  }
-  a:focus-visible {
-    color: var(--white);
-    outline: 2px solid var(--white);
-    outline-offset: 4px;
-    border-radius: 2px;
-  }
-  .links::before {
-    content: "";
-    display: block;
-    width: 40px;
-    height: 1px;
-    background: var(--muted-1);
-    flex-shrink: 0;
-  }
-  .bio {
-    margin-top: 4rem;
-    max-width: 560px;
-    font-size: 0.85rem;
-    font-weight: 300;
-    color: var(--muted-3);
-    line-height: 1.8;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: var(--accent-strong);
+    transition: transform 0.25s ease;
   }
 
-  @keyframes fade-in-up {
+  a:hover {
+    color: var(--accent-strong);
+  }
+
+  .top-links a:hover::after,
+  .footer a:hover::after,
+  a:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  a:focus-visible {
+    outline: 2px solid var(--accent-strong);
+    outline-offset: 0.35rem;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 24rem);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: end;
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .hero-copy {
+    max-width: 58rem;
+  }
+
+  .eyebrow,
+  .panel-kicker {
+    color: var(--accent-strong);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+  }
+
+  .name {
+    max-width: 9ch;
+    margin-top: 0.9rem;
+    color: var(--paper);
+    font-family: var(--display);
+    font-size: clamp(4.8rem, 17vw, 13rem);
+    font-weight: 700;
+    line-height: 0.8;
+    letter-spacing: 0;
+  }
+
+  .role {
+    max-width: 46rem;
+    margin-top: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--muted);
+    font-size: clamp(1.25rem, 2.5vw, 2rem);
+    line-height: 1.35;
+  }
+
+  .signal-panel {
+    position: relative;
+    padding: 1.25rem;
+    border-top: 1px solid var(--accent);
+    background: linear-gradient(180deg, var(--panel), rgba(244, 239, 227, 0.025));
+    box-shadow: 0 1.5rem 4rem var(--shadow);
+  }
+
+  .signal-panel::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    right: 0;
+    width: 36%;
+    height: 1px;
+    background: var(--paper);
+  }
+
+  .signal-panel p:last-child {
+    margin-top: 1.25rem;
+    color: var(--paper);
+    font-family: var(--display);
+    font-size: clamp(1.35rem, 2.5vw, 2rem);
+    line-height: 1.18;
+  }
+
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .metrics article {
+    min-height: 10rem;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border-right: 1px solid var(--line);
+  }
+
+  .metrics article:last-child {
+    border-right: 0;
+  }
+
+  .metrics strong {
+    display: block;
+    color: var(--paper);
+    font-family: var(--display);
+    font-size: clamp(2rem, 4vw, 3.6rem);
+    font-weight: 700;
+    line-height: 0.95;
+  }
+
+  .metrics span {
+    display: block;
+    max-width: 12rem;
+    margin-top: 1rem;
+    color: var(--quiet);
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.45;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .work {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(18rem, 0.8fr);
+    gap: clamp(2rem, 7vw, 6rem);
+    padding: clamp(4rem, 10vw, 8rem) 0 clamp(2.5rem, 6vw, 5rem);
+  }
+
+  .work h2 {
+    max-width: 12ch;
+    margin-top: 0.75rem;
+    color: var(--paper);
+    font-family: var(--display);
+    font-size: clamp(2.7rem, 7vw, 6.2rem);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: 0;
+  }
+
+  .work > p {
+    align-self: end;
+    color: var(--muted);
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    line-height: 1.75;
+  }
+
+  .capabilities {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .capability {
+    min-height: 20rem;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    background:
+      linear-gradient(160deg, rgba(244, 239, 227, 0.085), rgba(244, 239, 227, 0.025)),
+      var(--bg);
+  }
+
+  .capability span {
+    color: var(--accent);
+    font-family: var(--display);
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .capability h3 {
+    max-width: 9rem;
+    margin-top: 4rem;
+    color: var(--paper);
+    font-family: var(--display);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .capability p {
+    margin-top: 1.25rem;
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: clamp(2rem, 5vw, 4rem);
+    color: var(--quiet);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  @keyframes reveal-up {
     from {
       opacity: 0;
-      transform: translateY(var(--slide));
+      transform: translateY(18px);
     }
   }
-  .greeting,
-  .name,
-  .role,
-  .links,
-  .bio {
-    animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  .masthead,
+  .hero-copy,
+  .signal-panel,
+  .metrics,
+  .work,
+  .capabilities,
+  .footer {
+    animation: reveal-up 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
-  .greeting { --slide: 8px; animation-delay: 0s; }
-  .name { --slide: 8px; animation-delay: 0.05s; }
-  .role { --slide: 20px; animation-delay: 0.1s; }
-  .links { --slide: 20px; animation-delay: 0.15s; }
-  .bio { --slide: 20px; animation-delay: 0.2s; }
+
+  .hero-copy { animation-delay: 0.05s; }
+  .signal-panel { animation-delay: 0.12s; }
+  .metrics { animation-delay: 0.18s; }
+  .work { animation-delay: 0.22s; }
+  .capabilities { animation-delay: 0.26s; }
+  .footer { animation-delay: 0.3s; }
+
+  @media (max-width: 800px) {
+    main {
+      width: min(100% - 1.25rem, 44rem);
+    }
+
+    .masthead {
+      padding-bottom: 3.25rem;
+    }
+
+    .hero,
+    .work {
+      grid-template-columns: 1fr;
+    }
+
+    .hero {
+      align-items: start;
+      padding-bottom: 3.5rem;
+    }
+
+    .name {
+      max-width: 8ch;
+      font-size: clamp(4.1rem, 24vw, 7.5rem);
+    }
+
+    .metrics,
+    .capabilities {
+      grid-template-columns: 1fr;
+    }
+
+    .metrics article {
+      min-height: auto;
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .metrics article:last-child {
+      border-bottom: 0;
+    }
+
+    .capability {
+      min-height: 15rem;
+    }
+
+    .capability h3 {
+      margin-top: 2.5rem;
+    }
+
+    .footer {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .masthead {
+      align-items: flex-start;
+    }
+
+    .top-links {
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.75rem;
+    }
+
+    .role {
+      font-size: 1.15rem;
+    }
+  }
 
   @media (prefers-reduced-motion: reduce) {
-    .greeting,
-    .name,
-    .role,
-    .links,
-    .bio {
-      animation: none;
-      opacity: 1;
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
   }
 </style>
