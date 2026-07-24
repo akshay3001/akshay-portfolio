@@ -33,4 +33,5 @@ pnpm-debug.log*
 
 # VS Code specific
 .vscode/*
+!.vscode/extensions.json
 .history/
