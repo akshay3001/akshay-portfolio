@@ -1,2 +1,2 @@
 /// <reference types="astro/client" />
-/// <reference path="fonts.d.ts" />
+/// <reference path="content.d.ts" />

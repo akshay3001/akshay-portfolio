@@ -1,5 +1,8 @@
 ---
-import { Font } from "astro:assets";
+import "@fontsource-variable/anybody/standard.css";
+import "@fontsource/instrument-serif/latin.css";
+import "@fontsource/instrument-serif/latin-italic.css";
+
 const siteUrl = "https://akshay-portfolio.vercel.app";
 const title = "Akshay Mhatre - Frontend Developer";
 const description =
@@ -7,23 +10,22 @@ const description =
 const ogImage = `${siteUrl}/portfolio-screenshot.png`;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <Font cssVariable="--font-inter" />
-    <title>{title}</title>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#e64b32" />
+
+    <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={siteUrl} />
 
-    <!-- Primary meta -->
     <meta name="description" content={description} />
     <meta name="author" content="Akshay Mhatre" />
     <meta name="robots" content="index, follow" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={siteUrl} />
     <meta property="og:title" content={title} />
@@ -32,26 +34,26 @@ const ogImage = `${siteUrl}/portfolio-screenshot.png`;
     <meta property="og:site_name" content="Akshay Mhatre" />
     <meta property="og:locale" content="en_US" />
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <!-- JSON-LD: Person -->
-    <script type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Akshay Mhatre",
-      "url": siteUrl,
-      "jobTitle": "Frontend Developer",
-      "sameAs": [
-        "https://github.com/akshay3001",
-        "https://in.linkedin.com/in/akshay-mhatre-732a83144"
-      ]
-    })} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Akshay Mhatre",
+        url: siteUrl,
+        jobTitle: "Frontend Developer",
+        sameAs: [
+          "https://github.com/akshay3001",
+          "https://in.linkedin.com/in/akshay-mhatre-732a83144",
+        ],
+      })}
+    />
 
-    <!-- Google tag (gtag.js) -->
     <script
       type="text/partytown"
       src="https://www.googletagmanager.com/gtag/js?id=G-HJJ63FZP1P"
@@ -65,213 +67,919 @@ const ogImage = `${siteUrl}/portfolio-screenshot.png`;
       gtag("config", "G-HJJ63FZP1P");
     </script>
   </head>
+
   <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    <main id="main-content">
-      <div class="container">
-        <span class="greeting">Hello there</span>
-        <h1 class="name" data-testid="personal-info">Akshay</h1>
-        <p class="role" aria-label="Backbase Certified Frontend Developer">Backbase Certified<br />Frontend Developer</p>
-        <nav class="links" aria-label="Social profiles">
-          <ul>
-            <li>
-              <a
-                href="https://github.com/akshay3001"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-testid="github-link"
-                aria-label="GitHub profile (opens in new tab)">GitHub</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://in.linkedin.com/in/akshay-mhatre-732a83144"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-testid="linked-link"
-                aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a
-              >
-            </li>
-          </ul>
-        </nav>
-        <p class="bio">
-          Frontend developer focused on digital banking. I work with Angular and
-          the Backbase AI-powered banking platform to build and ship features across retail,
-          business, and wealth management - from onboarding to servicing,
-          covering the full customer lifecycle.
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <div class="page-frame" data-testid="portfolio-shell">
+      <header class="masthead" data-testid="header">
+        <a class="identity" href="#main-content" aria-label="Akshay Mhatre, home">
+          <span class="monogram" aria-hidden="true">AM</span>
+          <span class="identity-copy">
+            <strong>Akshay Mhatre</strong>
+            <small>Frontend Developer</small>
+          </span>
+        </a>
+
+        <p class="practice">
+          <span aria-hidden="true"></span>
+          Digital banking / Angular / Backbase
         </p>
-      </div>
-    </main>
+
+        <nav class="social-links" aria-label="Social profiles">
+          <a
+            href="https://github.com/akshay3001"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="github-link"
+            aria-label="GitHub profile (opens in new tab)"
+          >
+            <span>GitHub</span>
+            <svg viewBox="0 0 12 12" aria-hidden="true">
+              <path d="M2.25 9.75 9.75 2.25M4 2.25h5.75V8"></path>
+            </svg>
+          </a>
+          <a
+            href="https://in.linkedin.com/in/akshay-mhatre-732a83144"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="linked-link"
+            aria-label="LinkedIn profile (opens in new tab)"
+          >
+            <span>LinkedIn</span>
+            <svg viewBox="0 0 12 12" aria-hidden="true">
+              <path d="M2.25 9.75 9.75 2.25M4 2.25h5.75V8"></path>
+            </svg>
+          </a>
+        </nav>
+      </header>
+
+      <main id="main-content">
+        <section class="profile" aria-labelledby="profile-title">
+          <div class="profile-index" aria-hidden="true">
+            <span>Profile</span>
+            <span>01 / 01</span>
+          </div>
+
+          <p class="greeting">
+            <span aria-hidden="true">01</span>
+            Hello there
+          </p>
+
+          <h1 id="profile-title" class="name" data-testid="personal-info">
+            <span class="first-name">Akshay</span>
+            <span class="last-name">Mhatre</span>
+          </h1>
+
+          <div class="certification-mark" aria-hidden="true">
+            <svg viewBox="0 0 200 200">
+              <defs>
+                <path
+                  id="certification-path"
+                  d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"
+                ></path>
+              </defs>
+              <circle class="mark-fill" cx="100" cy="100" r="98"></circle>
+              <circle class="mark-rule" cx="100" cy="100" r="73"></circle>
+              <text class="mark-copy">
+                <textPath href="#certification-path" startOffset="1%">
+                  BACKBASE CERTIFIED · FRONTEND DEVELOPER ·
+                </textPath>
+              </text>
+              <path class="mark-cross" d="M72 100h56M100 72v56"></path>
+              <text class="mark-initials" x="100" y="108">AM</text>
+            </svg>
+          </div>
+
+          <div class="profile-details">
+            <div class="role-block" data-testid="role">
+              <span class="detail-label">Role</span>
+              <p>
+                Backbase Certified<br />
+                <em>Frontend Developer</em>
+              </p>
+            </div>
+
+            <div class="biography">
+              <span class="detail-label">Profile</span>
+              <p data-testid="bio">
+                Frontend developer focused on <em>digital banking</em>. I work
+                with <strong>Angular</strong> and the
+                <strong>Backbase AI-powered banking platform</strong> to build
+                and ship features across
+                <em>retail, business, and wealth management</em> — from
+                onboarding to servicing, covering the full customer lifecycle.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
   </body>
 </html>
 
 <style>
   :root {
-    --bg: #090909;
-    --fg: #f0f0f0;
-    --white: #fff;
-    --muted-1: #222;
-    --muted-2: #2a2a2a;
-    --muted-3: #999;
-    --muted-4: #888;
-    --muted-5: #aaa;
-    --muted-6: var(--muted-4);
+    color-scheme: light;
+    --paper: #f1ebdd;
+    --ink: #171612;
+    --signal: #e64b32;
+    --quiet: #6e695e;
+    --rule: rgba(23, 22, 18, 0.28);
+    --body-font: "Anybody Variable", sans-serif;
+    --editorial-font: "Instrument Serif", serif;
   }
-  .skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    padding: 0.5rem 1rem;
-    background: var(--white);
-    color: var(--bg);
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-decoration: none;
-    z-index: 100;
-    transition: top 0.2s;
-  }
-  .skip-link:focus-visible {
-    top: 0;
-  }
+
   *,
   *::before,
   *::after {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
   }
-  html,
+
+  * {
+    margin: 0;
+  }
+
+  html {
+    min-width: 320px;
+    min-height: 100%;
+    background: var(--signal);
+    scroll-behavior: smooth;
+  }
+
   body {
     min-height: 100vh;
-    background: var(--bg);
-    color: var(--fg);
-    font-family: var(--font-inter), sans-serif;
-  }
-  main {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: clamp(2rem, 8vw, 6rem);
-  }
-  .container {
-    max-width: 1000px;
-  }
-  .greeting {
-    display: block;
-    font-size: 0.85rem;
-    font-weight: 300;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--muted-4);
-    margin-bottom: 0.75rem;
-  }
-  .name {
-    font-size: clamp(5rem, 14vw, 11rem);
-    font-weight: 900;
-    line-height: 0.88;
-    letter-spacing: -0.04em;
-    color: var(--white);
-  }
-  .role {
-    font-size: clamp(1rem, 2.2vw, 1.4rem);
-    font-weight: 300;
-    color: var(--muted-5);
-    line-height: 1.7;
-    margin-top: 2rem;
-    padding-left: 1.25rem;
-    border-left: 1px solid var(--muted-2);
-  }
-  .links {
-    display: flex;
-    gap: 2.5rem;
-    margin-top: 4rem;
-    align-items: center;
-  }
-  .links ul {
-    display: flex;
-    gap: 2.5rem;
-    align-items: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  a {
-    color: var(--muted-6);
-    text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: 400;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-    position: relative;
-  }
-  a::after {
-    content: "";
-    position: absolute;
-    bottom: -3px;
-    left: 0;
-    width: 0;
-    height: 1px;
-    background: var(--white);
-    transition: width 0.3s ease;
-  }
-  a:hover {
-    color: var(--white);
-  }
-  a:hover::after,
-  a:focus-visible::after {
-    width: 100%;
-  }
-  a:focus-visible {
-    color: var(--white);
-    outline: 2px solid var(--white);
-    outline-offset: 4px;
-    border-radius: 2px;
-  }
-  .links::before {
-    content: "";
-    display: block;
-    width: 40px;
-    height: 1px;
-    background: var(--muted-1);
-    flex-shrink: 0;
-  }
-  .bio {
-    margin-top: 4rem;
-    max-width: 560px;
-    font-size: 0.85rem;
-    font-weight: 300;
-    color: var(--muted-3);
-    line-height: 1.8;
+    min-height: 100svh;
+    padding: clamp(0.5rem, 1.35vw, 1rem);
+    overflow-x: hidden;
+    background: var(--signal);
+    color: var(--ink);
+    font-family: var(--body-font);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
-  @keyframes fade-in-up {
+  a {
+    color: inherit;
+  }
+
+  .skip-link {
+    position: fixed;
+    top: 0;
+    left: 1.5rem;
+    z-index: 100;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--paper);
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transform: translateY(-110%);
+    transition: transform 180ms ease;
+  }
+
+  .skip-link:focus-visible {
+    transform: translateY(0.5rem);
+  }
+
+  .page-frame {
+    position: relative;
+    width: min(100%, 1920px);
+    min-height: calc(100vh - clamp(1rem, 2.7vw, 2rem));
+    min-height: calc(100svh - clamp(1rem, 2.7vw, 2rem));
+    margin-inline: auto;
+    overflow: hidden;
+    border: 2px solid var(--ink);
+    background-color: var(--paper);
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 3px,
+      rgba(23, 22, 18, 0.018) 3px,
+      rgba(23, 22, 18, 0.018) 4px
+    );
+    box-shadow: 5px 5px 0 var(--ink);
+    isolation: isolate;
+    animation: frame-in 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .page-frame::before,
+  .page-frame::after {
+    position: absolute;
+    z-index: 5;
+    width: 0.55rem;
+    height: 0.55rem;
+    border: 1px solid var(--ink);
+    background: var(--signal);
+    content: "";
+    pointer-events: none;
+  }
+
+  .page-frame::before {
+    top: -0.28rem;
+    left: 24%;
+    transform: rotate(45deg);
+  }
+
+  .page-frame::after {
+    right: 24%;
+    bottom: -0.28rem;
+    transform: rotate(45deg);
+  }
+
+  .masthead {
+    position: relative;
+    z-index: 4;
+    display: grid;
+    grid-template-columns: minmax(14rem, 1fr) auto minmax(14rem, 1fr);
+    min-height: 4.75rem;
+    border-bottom: 2px solid var(--ink);
+    background: rgba(241, 235, 221, 0.96);
+  }
+
+  .identity {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    width: max-content;
+    padding: 0.75rem clamp(1rem, 2vw, 1.75rem);
+    text-decoration: none;
+  }
+
+  .monogram {
+    display: grid;
+    width: 2.55rem;
+    aspect-ratio: 1;
+    place-items: center;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 0.72rem;
+    font-stretch: 80%;
+    font-weight: 750;
+    letter-spacing: -0.05em;
+    transition:
+      border-radius 350ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .identity:hover .monogram {
+    border-radius: 50%;
+    transform: rotate(-8deg);
+  }
+
+  .identity-copy {
+    display: grid;
+    gap: 0.1rem;
+  }
+
+  .identity-copy strong,
+  .identity-copy small {
+    font-size: 0.69rem;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .identity-copy strong {
+    font-weight: 720;
+  }
+
+  .identity-copy small {
+    color: var(--quiet);
+    font-weight: 450;
+  }
+
+  .practice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    padding-inline: 1rem;
+    color: var(--quiet);
+    font-size: 0.62rem;
+    font-stretch: 90%;
+    font-weight: 580;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .practice span {
+    width: 0.48rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--signal);
+    box-shadow: 0 0 0 3px rgba(230, 75, 50, 0.14);
+  }
+
+  .social-links {
+    display: flex;
+    justify-self: end;
+  }
+
+  .social-links a {
+    display: flex;
+    min-width: 7.7rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem clamp(1rem, 1.8vw, 1.5rem);
+    border-left: 1px solid var(--rule);
+    font-size: 0.68rem;
+    font-weight: 680;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+      background-color 220ms ease,
+      color 220ms ease;
+  }
+
+  .social-links svg {
+    width: 0.72rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: square;
+    stroke-width: 1.4;
+    transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .social-links a:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .social-links a:hover svg {
+    transform: translate(0.14rem, -0.14rem);
+  }
+
+  .identity:focus-visible,
+  .social-links a:focus-visible {
+    outline: 3px solid var(--signal);
+    outline-offset: -3px;
+  }
+
+  main {
+    min-height: calc(100vh - 6.75rem);
+    min-height: calc(100svh - 6.75rem);
+  }
+
+  .profile {
+    --gutter: clamp(1.25rem, 3vw, 3.25rem);
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(3rem, 0.65fr) repeat(11, 1fr);
+    grid-template-rows: auto minmax(15rem, 1fr) auto;
+    min-height: calc(100vh - 6.75rem);
+    min-height: calc(100svh - 6.75rem);
+    padding: var(--gutter);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  .profile::before,
+  .profile::after {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    pointer-events: none;
+  }
+
+  .profile::before {
+    top: 0;
+    bottom: 0;
+    left: 24%;
+    width: 1px;
+    background: var(--rule);
+  }
+
+  .profile::after {
+    top: 53%;
+    right: -7vw;
+    width: min(37vw, 42rem);
+    height: clamp(0.8rem, 1.35vw, 1.45rem);
+    background: var(--signal);
+    transform: rotate(-7deg);
+    transform-origin: center;
+    animation: signal-in 900ms 350ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .profile-index {
+    display: flex;
+    grid-column: 1;
+    grid-row: 1 / 3;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: 0.1rem;
+    writing-mode: vertical-rl;
+  }
+
+  .profile-index span {
+    color: var(--quiet);
+    font-size: 0.56rem;
+    font-weight: 630;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .profile-index span:first-child {
+    color: var(--ink);
+  }
+
+  .greeting {
+    display: flex;
+    grid-column: 2 / 6;
+    align-items: center;
+    gap: 0.65rem;
+    padding-top: 0.1rem;
+    font-size: 0.7rem;
+    font-weight: 650;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    animation: rise-in 650ms 100ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .greeting span {
+    display: grid;
+    width: 1.75rem;
+    aspect-ratio: 1;
+    place-items: center;
+    border: 1px solid var(--ink);
+    border-radius: 50%;
+    color: var(--signal);
+    font-size: 0.5rem;
+    letter-spacing: 0;
+  }
+
+  .name {
+    z-index: 1;
+    display: flex;
+    grid-column: 2 / -1;
+    grid-row: 2;
+    flex-direction: column;
+    align-self: center;
+    margin: clamp(1rem, 2vw, 2rem) 0 clamp(2.25rem, 4vw, 4rem);
+    font-weight: 400;
+    pointer-events: none;
+  }
+
+  .first-name {
+    display: block;
+    font-size: clamp(6rem, 16.3vw, 18rem);
+    font-stretch: 86%;
+    font-weight: 820;
+    letter-spacing: -0.085em;
+    line-height: 0.72;
+    text-transform: uppercase;
+    animation: name-in 900ms 120ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .last-name {
+    display: block;
+    align-self: flex-end;
+    margin: 0 7% 0 0;
+    font-family: var(--editorial-font);
+    font-size: clamp(4.2rem, 8.5vw, 9.75rem);
+    font-style: italic;
+    letter-spacing: -0.055em;
+    line-height: 0.7;
+    text-transform: none;
+    transform: rotate(-2deg);
+    animation: last-name-in 800ms 320ms cubic-bezier(0.16, 1, 0.3, 1)
+      both;
+  }
+
+  .certification-mark {
+    position: absolute;
+    z-index: 2;
+    top: clamp(4.8rem, 10vh, 7.4rem);
+    right: clamp(2rem, 7vw, 8rem);
+    width: clamp(8.2rem, 14.5vw, 13.5rem);
+    aspect-ratio: 1;
+    filter: drop-shadow(0.35rem 0.35rem 0 var(--ink));
+    transform: rotate(8deg);
+    transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+    animation: mark-in 900ms 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .certification-mark:hover {
+    transform: rotate(-5deg) scale(1.03);
+  }
+
+  .certification-mark svg {
+    display: block;
+    overflow: visible;
+  }
+
+  .mark-fill {
+    fill: var(--signal);
+    stroke: var(--ink);
+    stroke-width: 2;
+  }
+
+  .mark-rule {
+    fill: var(--paper);
+    stroke: var(--ink);
+    stroke-width: 1.25;
+  }
+
+  .mark-copy {
+    fill: var(--ink);
+    font-family: var(--body-font);
+    font-size: 10.5px;
+    font-stretch: 90%;
+    font-weight: 720;
+    letter-spacing: 1.55px;
+  }
+
+  .mark-cross {
+    fill: none;
+    stroke: var(--rule);
+    stroke-width: 1;
+  }
+
+  .mark-initials {
+    fill: var(--ink);
+    font-family: var(--body-font);
+    font-size: 26px;
+    font-stretch: 75%;
+    font-weight: 820;
+    letter-spacing: -2px;
+    text-anchor: middle;
+  }
+
+  .profile-details {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-row: 3;
+    grid-template-columns: minmax(17rem, 0.9fr) minmax(0, 2.1fr);
+    margin: 0 calc(var(--gutter) * -1) calc(var(--gutter) * -1);
+    border-top: 2px solid var(--ink);
+    animation: details-in 750ms 420ms cubic-bezier(0.16, 1, 0.3, 1)
+      both;
+  }
+
+  .detail-label {
+    display: block;
+    font-size: 0.56rem;
+    font-weight: 650;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .role-block {
+    padding: clamp(1.2rem, 2vw, 1.85rem) var(--gutter);
+    border-right: 2px solid var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .role-block .detail-label {
+    color: rgba(241, 235, 221, 0.58);
+  }
+
+  .role-block p {
+    margin-top: clamp(1.25rem, 2vw, 2rem);
+    font-size: clamp(0.82rem, 1.1vw, 1.05rem);
+    font-stretch: 88%;
+    font-weight: 570;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .role-block em {
+    display: inline-block;
+    margin-top: 0.15rem;
+    color: var(--signal);
+    font-family: var(--editorial-font);
+    font-size: clamp(1.75rem, 2.5vw, 2.75rem);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    line-height: 1;
+    text-transform: none;
+  }
+
+  .biography {
+    display: grid;
+    grid-template-columns: minmax(4rem, 0.25fr) minmax(0, 2.75fr);
+    gap: clamp(1rem, 2vw, 2rem);
+    align-items: start;
+    padding: clamp(1.2rem, 2vw, 1.85rem) var(--gutter);
+  }
+
+  .biography p {
+    max-width: 70rem;
+    font-size: clamp(0.92rem, 1.24vw, 1.2rem);
+    font-stretch: 98%;
+    font-weight: 430;
+    line-height: 1.48;
+  }
+
+  .biography strong {
+    font-weight: 690;
+  }
+
+  .biography em {
+    font-family: var(--editorial-font);
+    font-size: 1.25em;
+    font-style: italic;
+    letter-spacing: -0.02em;
+    line-height: 0;
+  }
+
+  @keyframes frame-in {
     from {
-      opacity: 0;
-      transform: translateY(var(--slide));
+      box-shadow: 0 0 0 var(--ink);
     }
   }
-  .greeting,
-  .name,
-  .role,
-  .links,
-  .bio {
-    animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+
+  @keyframes rise-in {
+    from {
+      transform: translateY(1rem);
+    }
   }
-  .greeting { --slide: 8px; animation-delay: 0s; }
-  .name { --slide: 8px; animation-delay: 0.05s; }
-  .role { --slide: 20px; animation-delay: 0.1s; }
-  .links { --slide: 20px; animation-delay: 0.15s; }
-  .bio { --slide: 20px; animation-delay: 0.2s; }
+
+  @keyframes name-in {
+    from {
+      font-stretch: 55%;
+      transform: translateY(2.5rem);
+    }
+  }
+
+  @keyframes last-name-in {
+    from {
+      transform: translate(2rem, 1.5rem) rotate(2deg);
+    }
+    to {
+      transform: rotate(-2deg);
+    }
+  }
+
+  @keyframes signal-in {
+    from {
+      transform: translateX(70%) rotate(-7deg);
+    }
+  }
+
+  @keyframes mark-in {
+    from {
+      transform: scale(0.4) rotate(50deg);
+    }
+  }
+
+  @keyframes details-in {
+    from {
+      transform: translateY(2rem);
+    }
+  }
+
+  @media (max-width: 960px) {
+    .masthead {
+      grid-template-columns: minmax(12rem, 1fr) auto;
+    }
+
+    .practice {
+      display: none;
+    }
+
+    .profile {
+      grid-template-columns: minmax(2.5rem, 0.5fr) repeat(11, 1fr);
+    }
+
+    .first-name {
+      font-size: clamp(6rem, 17vw, 10rem);
+    }
+
+    .certification-mark {
+      right: 4vw;
+    }
+
+    .profile-details {
+      grid-template-columns: minmax(15rem, 0.85fr) minmax(0, 2.15fr);
+    }
+
+    .biography {
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+    }
+  }
+
+  @media (max-width: 700px) {
+    body {
+      padding: 0.4rem;
+    }
+
+    .page-frame {
+      min-height: calc(100svh - 0.8rem);
+      box-shadow: 3px 3px 0 var(--ink);
+    }
+
+    .masthead {
+      grid-template-columns: 1fr auto;
+      min-height: 4rem;
+    }
+
+    .identity {
+      gap: 0.6rem;
+      padding: 0.55rem 0.75rem;
+    }
+
+    .monogram {
+      width: 2.25rem;
+    }
+
+    .identity-copy small {
+      display: none;
+    }
+
+    .social-links a {
+      min-width: 0;
+      gap: 0.45rem;
+      padding: 0.65rem 0.72rem;
+    }
+
+    main,
+    .profile {
+      min-height: calc(100svh - 4.8rem);
+    }
+
+    .profile {
+      --gutter: clamp(1rem, 5vw, 1.5rem);
+      display: block;
+      padding: var(--gutter);
+      overflow: hidden;
+    }
+
+    .profile::before {
+      left: auto;
+      right: 18%;
+    }
+
+    .profile::after {
+      top: 17rem;
+      right: -5rem;
+      width: 19rem;
+      height: 0.75rem;
+    }
+
+    .profile-index {
+      position: absolute;
+      top: var(--gutter);
+      right: var(--gutter);
+      display: flex;
+      height: 6.5rem;
+    }
+
+    .greeting {
+      padding-top: 0;
+    }
+
+    .name {
+      display: flex;
+      margin: clamp(4.5rem, 17vw, 6.5rem) 0 clamp(3rem, 12vw, 4.5rem);
+    }
+
+    .first-name {
+      font-size: clamp(4.5rem, 21.5vw, 8rem);
+      font-stretch: 78%;
+      line-height: 0.76;
+    }
+
+    .last-name {
+      align-self: flex-start;
+      margin: 0 0 0 28%;
+      font-size: clamp(3.7rem, 17vw, 6.4rem);
+      line-height: 0.75;
+    }
+
+    .certification-mark {
+      top: 6.3rem;
+      right: clamp(1rem, 5vw, 2rem);
+      width: clamp(6.5rem, 29vw, 8rem);
+      filter: drop-shadow(0.25rem 0.25rem 0 var(--ink));
+    }
+
+    .profile-details {
+      display: block;
+      margin: 0 calc(var(--gutter) * -1) calc(var(--gutter) * -1);
+    }
+
+    .role-block {
+      border-right: 0;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .role-block p {
+      margin-top: 1.1rem;
+    }
+
+    .role-block em {
+      font-size: clamp(2rem, 9vw, 2.75rem);
+    }
+
+    .biography {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.1rem;
+      padding-block: 1.4rem 1.65rem;
+    }
+
+    .biography p {
+      font-size: clamp(0.95rem, 4vw, 1.1rem);
+      line-height: 1.52;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .identity-copy strong {
+      font-size: 0.62rem;
+    }
+
+    .social-links a {
+      gap: 0.3rem;
+      padding-inline: 0.48rem;
+    }
+
+    .social-links a span {
+      font-size: 0;
+    }
+
+    .social-links a span::after {
+      font-size: 0.58rem;
+      letter-spacing: 0.06em;
+    }
+
+    .social-links a:first-child span::after {
+      content: "GH";
+    }
+
+    .social-links a:last-child span::after {
+      content: "IN";
+    }
+
+    .social-links svg {
+      width: 0.75rem;
+    }
+
+    .profile-index {
+      display: none;
+    }
+
+    .name {
+      margin-top: 4rem;
+    }
+
+    .first-name {
+      font-size: 22vw;
+    }
+  }
+
+  @media (min-width: 701px) and (max-height: 760px) {
+    .profile {
+      --gutter: clamp(1rem, 2.1vw, 2rem);
+      grid-template-rows: auto minmax(12rem, 1fr) auto;
+    }
+
+    .first-name {
+      font-size: min(14.5vw, 10.5rem);
+    }
+
+    .last-name {
+      font-size: min(7.5vw, 5.5rem);
+    }
+
+    .certification-mark {
+      top: 4.25rem;
+      width: min(12.5vw, 9rem);
+    }
+
+    .role-block,
+    .biography {
+      padding-block: 1rem;
+    }
+
+    .role-block p {
+      margin-top: 0.75rem;
+    }
+  }
 
   @media (prefers-reduced-motion: reduce) {
-    .greeting,
-    .name,
-    .role,
-    .links,
-    .bio {
-      animation: none;
-      opacity: 1;
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      animation-duration: 0.01ms !important;
+      animation-delay: 0ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
     }
   }
 </style>
