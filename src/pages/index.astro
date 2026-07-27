@@ -1,10 +1,15 @@
 ---
 import { Font } from "astro:assets";
-const siteUrl = "https://akshay-portfolio.vercel.app";
+
+if (!Astro.site) {
+  throw new Error("The site URL must be configured in astro.config.mjs");
+}
+
+const siteUrl = Astro.site.origin;
 const title = "Akshay Mhatre - Frontend Developer";
 const description =
   "Akshay Mhatre is a frontend developer focused on digital banking, building features across retail, business, and wealth management with Angular and the Backbase AI-powered banking platform.";
-const ogImage = `${siteUrl}/portfolio-screenshot.png`;
+const ogImage = new URL("/portfolio-screenshot.png", Astro.site).href;
 ---
 
 <!DOCTYPE html>
@@ -70,7 +75,7 @@ const ogImage = `${siteUrl}/portfolio-screenshot.png`;
     <main id="main-content">
       <div class="container">
         <span class="greeting">Hello there</span>
-        <h1 class="name" data-testid="personal-info">Akshay</h1>
+        <h1 class="name">Akshay</h1>
         <p class="role" aria-label="Backbase Certified Frontend Developer">Backbase Certified<br />Frontend Developer</p>
         <nav class="links" aria-label="Social profiles">
           <ul>
@@ -79,7 +84,6 @@ const ogImage = `${siteUrl}/portfolio-screenshot.png`;
                 href="https://github.com/akshay3001"
                 target="_blank"
                 rel="noopener noreferrer"
-                data-testid="github-link"
                 aria-label="GitHub profile (opens in new tab)">GitHub</a
               >
             </li>
@@ -88,7 +92,6 @@ const ogImage = `${siteUrl}/portfolio-screenshot.png`;
                 href="https://in.linkedin.com/in/akshay-mhatre-732a83144"
                 target="_blank"
                 rel="noopener noreferrer"
-                data-testid="linked-link"
                 aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a
               >
             </li>

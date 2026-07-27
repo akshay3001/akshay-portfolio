@@ -1,35 +1,77 @@
-# Welcome to Akshay Portfolio built with [Astro](https://astro.build)
+# Akshay Mhatre’s Portfolio
 
-Astro is an <strong>all-in-one web framework</strong> for building <strong>fast, content-focused</strong> websites.
+A static portfolio for Akshay Mhatre, built with Astro and deployed on Vercel.
+The site uses Astro’s font pipeline for Inter, Partytown for Google Analytics,
+the sitemap integration for search-engine discovery, and Playwright for
+browser-level verification.
 
-### Key Features
-- Section titled Key Features
-- Component Islands: A new web architecture for building faster websites.
-- Server-first API design: Move expensive hydration off of your users’ devices.
-- Zero JS, by default: No JavaScript runtime overhead to slow you down.
-- Edge-ready: Deploy anywhere, even a global edge runtime like Deno or Cloudflare.
-- Customizable: Tailwind, MDX, and 100+ other integrations to choose from.
-- UI-agnostic: Supports React, Preact, Svelte, Vue, Solid, Lit and more.
+## Live site
 
-## Live Demo
+[akshay-portfolio.vercel.app](https://akshay-portfolio.vercel.app/)
 
-https://akshay-portfolio.vercel.app/
+![Akshay Portfolio](./public/portfolio-screenshot.png)
 
-![Akshay Portfolio Screenshot](./portfolio-screenshot.png)
+## Requirements
 
-## 🧞 Commands
+- Node.js 24
+- npm 11
 
-All commands are run from the root of the project, from a terminal:
+With nvm installed, run `nvm use` to select the version declared in `.nvmrc`.
 
-| Command                | Action                                             |
-| :--------------------- | :------------------------------------------------- |
-| `npm install`          | Installs dependencies                              |
-| `npm run dev`          | Starts local dev server at `localhost:3000`        |
-| `npm run build`        | Build your production site to `./dist/`            |
-| `npm run preview`      | Preview your build locally, before deploying       |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
-| `npm run astro --help` | Get help using the Astro CLI                       |
+## Development
 
-## 👀 Want to learn more?
+Install the locked dependency tree:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat)
+```sh
+npm ci
+```
+
+Start the development server at `http://localhost:4321`:
+
+```sh
+npm run dev
+```
+
+Create the static production output in `dist`:
+
+```sh
+npm run build
+```
+
+Preview an existing production build:
+
+```sh
+npm run preview
+```
+
+## Verification
+
+Run the same build and Chromium checks used by the pull-request workflow:
+
+```sh
+npm test
+```
+
+`npm test` builds the site, starts a production preview on
+`http://127.0.0.1:4322`, and runs the Playwright suite.
+
+To run Playwright against an existing build:
+
+```sh
+npm run test:e2e
+```
+
+To intentionally update visual snapshots after reviewing a design change:
+
+```sh
+npm run test:e2e:update
+```
+
+## Project structure
+
+- `src/pages/index.astro` contains the static portfolio page and metadata.
+- `src/tests` contains semantic, metadata, accessibility, asset, and visual
+  browser tests.
+- `public` contains files copied directly to the production build.
+- `astro.config.mjs` configures the canonical site URL, Inter fonts, sitemap,
+  and Partytown.
