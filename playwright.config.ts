@@ -31,7 +31,9 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: "npm run preview -- --host 127.0.0.1 --port 4322",
+    // Playwright owns this process. `--ignore-lock` also stops Astro from
+    // moving the server to the background when an AI agent runs the tests.
+    command: "npm run preview -- --host 127.0.0.1 --port 4322 --ignore-lock",
     url: baseURL,
     timeout: 120_000,
     reuseExistingServer: false,

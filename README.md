@@ -46,7 +46,15 @@ npm run preview
 
 ## Verification
 
-Run the same build and Chromium checks used by the pull-request workflow:
+The pull-request workflow runs the type check and the build:
+
+```sh
+npm run check
+npm run build
+```
+
+Playwright runs only on your machine, because the visual baseline depends on
+the local font rendering. Run the build and the Chromium checks:
 
 ```sh
 npm test

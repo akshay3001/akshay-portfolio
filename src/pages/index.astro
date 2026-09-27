@@ -5,11 +5,13 @@ if (!Astro.site) {
   throw new Error("The site URL must be configured in astro.config.mjs");
 }
 
-const siteUrl = Astro.site.origin;
+// Keep the trailing slash so canonical and og:url match the sitemap entry.
+const siteUrl = Astro.site.href;
 const title = "Akshay Mhatre - Frontend Developer";
 const description =
   "Akshay Mhatre is a frontend developer focused on digital banking, building features across retail, business, and wealth management with Angular and the Backbase AI-powered banking platform.";
 const ogImage = new URL("/portfolio-screenshot.png", Astro.site).href;
+const ogImageAlt = "Screenshot of the Akshay Mhatre portfolio landing page";
 ---
 
 <!DOCTYPE html>
@@ -19,13 +21,13 @@ const ogImage = new URL("/portfolio-screenshot.png", Astro.site).href;
     <Font cssVariable="--font-inter" />
     <title>{title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#090909" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={siteUrl} />
 
     <!-- Primary meta -->
     <meta name="description" content={description} />
     <meta name="author" content="Akshay Mhatre" />
-    <meta name="robots" content="index, follow" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Open Graph -->
@@ -34,6 +36,9 @@ const ogImage = new URL("/portfolio-screenshot.png", Astro.site).href;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="3578" />
+    <meta property="og:image:height" content="1998" />
+    <meta property="og:image:alt" content={ogImageAlt} />
     <meta property="og:site_name" content="Akshay Mhatre" />
     <meta property="og:locale" content="en_US" />
 
@@ -42,6 +47,7 @@ const ogImage = new URL("/portfolio-screenshot.png", Astro.site).href;
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
 
     <!-- JSON-LD: Person -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -76,7 +82,7 @@ const ogImage = new URL("/portfolio-screenshot.png", Astro.site).href;
       <div class="container">
         <span class="greeting">Hello there</span>
         <h1 class="name">Akshay</h1>
-        <p class="role" aria-label="Backbase Certified Frontend Developer">Backbase Certified<br />Frontend Developer</p>
+        <p class="role">Backbase Certified<br />Frontend Developer</p>
         <nav class="links" aria-label="Social profiles">
           <ul>
             <li>
@@ -110,6 +116,7 @@ const ogImage = new URL("/portfolio-screenshot.png", Astro.site).href;
 
 <style>
   :root {
+    color-scheme: dark;
     --bg: #090909;
     --fg: #f0f0f0;
     --white: #fff;
@@ -118,7 +125,6 @@ const ogImage = new URL("/portfolio-screenshot.png", Astro.site).href;
     --muted-3: #999;
     --muted-4: #888;
     --muted-5: #aaa;
-    --muted-6: var(--muted-4);
   }
   .skip-link {
     position: absolute;
@@ -145,13 +151,13 @@ const ogImage = new URL("/portfolio-screenshot.png", Astro.site).href;
   }
   html,
   body {
-    min-height: 100vh;
+    min-height: 100svh;
     background: var(--bg);
     color: var(--fg);
     font-family: var(--font-inter), sans-serif;
   }
   main {
-    min-height: 100vh;
+    min-height: 100svh;
     display: flex;
     align-items: center;
     padding: clamp(2rem, 8vw, 6rem);
@@ -199,7 +205,7 @@ const ogImage = new URL("/portfolio-screenshot.png", Astro.site).href;
     margin: 0;
   }
   a {
-    color: var(--muted-6);
+    color: var(--muted-4);
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: 400;
