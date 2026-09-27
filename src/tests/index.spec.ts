@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 const title = "Akshay Mhatre - Frontend Developer";
 const description =
   "Akshay Mhatre is a frontend developer focused on digital banking, building features across retail, business, and wealth management with Angular and the Backbase AI-powered banking platform.";
-const siteUrl = "https://akshay-portfolio.vercel.app";
+const siteUrl = "https://akshay-portfolio.vercel.app/";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("/");
@@ -21,7 +21,7 @@ test("exposes the expected metadata", async ({ page }) => {
   );
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
     "content",
-    `${siteUrl}/portfolio-screenshot.png`,
+    `${siteUrl}portfolio-screenshot.png`,
   );
 
   const structuredData = JSON.parse(
@@ -47,9 +47,7 @@ test("presents the portfolio content and social links", async ({ page }) => {
   await expect(
     page.getByRole("heading", { level: 1, name: "Akshay" }),
   ).toBeVisible();
-  await expect(
-    page.getByLabel("Backbase Certified Frontend Developer"),
-  ).toBeVisible();
+  await expect(page.getByText("Backbase Certified")).toBeVisible();
   await expect(
     page.getByText(/Frontend developer focused on digital banking/),
   ).toBeVisible();

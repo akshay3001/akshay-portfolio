@@ -24,6 +24,7 @@ jobs:
       fail-fast: false
       matrix:
         language:
+          - actions
           - javascript
     steps:
       - name: Checkout repository
