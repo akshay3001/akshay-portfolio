@@ -3,7 +3,7 @@ import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
 
 export default defineConfig({
-  site: "https://akshay-portfolio.vercel.app/",
+  site: "https://akshay3001.com/",
   fonts: [
     {
       provider: fontProviders.fontsource(),

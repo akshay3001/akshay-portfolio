@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 const title = "Akshay Mhatre - Frontend Developer";
 const description =
   "Akshay Mhatre is a frontend developer focused on digital banking, building features across retail, business, and wealth management with Angular and the Backbase AI-powered banking platform.";
-const siteUrl = "https://akshay-portfolio.vercel.app/";
+const siteUrl = "https://akshay3001.com/";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("/");
