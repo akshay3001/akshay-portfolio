@@ -7,7 +7,7 @@ browser-level verification.
 
 ## Live site
 
-[akshay-portfolio.vercel.app](https://akshay-portfolio.vercel.app/)
+[akshay3001.com](https://akshay3001.com/)
 
 ![Akshay Portfolio](./public/portfolio-screenshot.png)
 
