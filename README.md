@@ -1,9 +1,9 @@
 # Akshay Mhatre’s Portfolio
 
-A static portfolio for Akshay Mhatre, built with Astro and deployed on Vercel.
-The site uses Astro’s font pipeline for Inter, Partytown for Google Analytics,
-the sitemap integration for search-engine discovery, and Playwright for
-browser-level verification.
+A static portfolio for Akshay Mhatre, built with Astro and deployed on
+Cloudflare Workers. The site uses Astro’s font pipeline for Inter, Partytown
+for Google Analytics, the sitemap integration for search-engine discovery, and
+Playwright for browser-level verification.
 
 ## Live site
 
@@ -75,11 +75,27 @@ To intentionally update visual snapshots after reviewing a design change:
 npm run test:e2e:update
 ```
 
+## Deployment
+
+Cloudflare Workers Builds deploys the site from the Git repository. A push to
+`master` builds and deploys production. Other branches get a preview URL.
+The Worker has no script. It serves the static files in `dist` as configured in
+`wrangler.jsonc`.
+
+To serve the production build on the Workers runtime locally:
+
+```sh
+npm run build
+npx wrangler dev
+```
+
 ## Project structure
 
 - `src/pages/index.astro` contains the static portfolio page and metadata.
 - `src/tests` contains semantic, metadata, accessibility, asset, and visual
   browser tests.
-- `public` contains files copied directly to the production build.
+- `public` contains files copied directly to the production build, including
+  the `_headers` cache rules for Cloudflare.
+- `wrangler.jsonc` configures the Cloudflare Worker that serves `dist`.
 - `astro.config.mjs` configures the canonical site URL, Inter fonts, sitemap,
   and Partytown.

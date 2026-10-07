@@ -1,0 +1,10 @@
+// Cloudflare Workers config. The site is fully static, so the Worker has no
+// script and only serves the Astro build output from `dist`.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "akshay-portfolio",
+  "compatibility_date": "2026-10-07",
+  "assets": {
+    "directory": "./dist"
+  }
+}
