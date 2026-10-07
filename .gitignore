@@ -23,7 +23,6 @@ pnpm-debug.log*
 
 # Astro specific
 .astro/
-.vercel/
 .netlify/
 .turbo/
 .cache/
