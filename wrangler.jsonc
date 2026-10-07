@@ -1,10 +1,12 @@
 // Cloudflare Workers config. The site is fully static, so the Worker has no
 // script and only serves the Astro build output from `dist`.
+// The empty `previews` block is needed for `wrangler preview` (preview builds for non-production branches).
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "akshay-portfolio",
   "compatibility_date": "2026-10-07",
   "assets": {
     "directory": "./dist"
-  }
+  },
+  "previews": {}
 }
