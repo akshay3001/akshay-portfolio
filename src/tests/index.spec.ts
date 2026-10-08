@@ -80,11 +80,13 @@ test("supports keyboard navigation and reduced motion", async ({ page }) => {
 });
 
 test("serves the generated public assets", async ({ request }) => {
-  const image = await request.get("/portfolio-screenshot.png");
-  expect(image.ok()).toBe(true);
-  expect(image.headers()["content-type"]).toContain("image/png");
+  for (const path of ["/portfolio-screenshot.png", "/apple-touch-icon.png"]) {
+    const image = await request.get(path);
+    expect(image.ok()).toBe(true);
+    expect(image.headers()["content-type"]).toContain("image/png");
+  }
 
-  for (const path of ["/robots.txt", "/sitemap-index.xml"]) {
+  for (const path of ["/favicon.ico", "/robots.txt", "/sitemap-index.xml"]) {
     const response = await request.get(path);
     expect(response.ok()).toBe(true);
   }
