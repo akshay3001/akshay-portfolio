@@ -28,8 +28,9 @@
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.2.3",
     "@playwright/test": "^1.63.0",
+    "@typescript/native": "npm:typescript@^7.0.2",
     "husky": "^9.1.7",
-    "typescript": "^6.0.3",
+    "typescript": "npm:@typescript/typescript6@^6.0.2",
     "wrangler": "^4.147.0"
   }
 }
