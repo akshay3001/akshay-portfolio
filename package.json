@@ -20,17 +20,17 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.3.5"
+    "astro": "^7.4.4"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.10",
-    "@astrojs/partytown": "^2.1.8",
-    "@commitlint/cli": "^21.2.3",
+    "@astrojs/check": "^0.9.12",
+    "@astrojs/partytown": "^2.1.9",
+    "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.2.3",
-    "@playwright/test": "^1.63.0",
+    "@playwright/test": "^1.64.1",
     "@typescript/native": "npm:typescript@^7.0.2",
     "husky": "^9.1.7",
     "typescript": "npm:@typescript/typescript6@^6.0.2",
-    "wrangler": "^4.147.0"
+    "wrangler": "^4.155.0"
   }
 }
